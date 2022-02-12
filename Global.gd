@@ -4,7 +4,7 @@ var VP = Vector2.ZERO
 
 var score = 0
 var time = 100
-var lives = 5
+var lives = 10
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS

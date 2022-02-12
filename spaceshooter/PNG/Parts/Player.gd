@@ -33,8 +33,6 @@ func _physics_process(_delta):
 			bullet.rotation = rotation
 			Effects.add_child(bullet)
 
-
-
 func get_input():
 	var to_return = Vector2.ZERO
 	$Exhaust.hide()
@@ -65,4 +63,4 @@ func damage(d):
 
 func _on_Area2D_body_entered(body):
 	if body.name != "Player":
-		damage(100)
+		damage(1)

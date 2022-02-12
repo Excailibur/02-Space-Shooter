@@ -10,13 +10,19 @@ config_version=4
 
 [application]
 
-config/name="Menu and HUD"
+config/name="Projec 02"
+config/description="The second project for game tech"
 run/main_scene="res://UI/Main_Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Global.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 

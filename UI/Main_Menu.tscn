@@ -1,24 +1,39 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/Main_Menu.gd" type="Script" id=1]
+[ext_resource path="res://UI/Starfield-Hyperspace-10sec.ogv" type="VideoStream" id=2]
 
 [node name="Main_Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.655
+margin_right = -1024.0
+margin_bottom = -393.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+stream = ExtResource( 2 )
+autoplay = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
 margin_right = 1024.0
-margin_bottom = 400.0
+margin_bottom = 600.0
 text = "Welcome to the Space Shooter!"
 align = 1
 valign = 1
+percent_visible = -0.04
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="Label"]
+[node name="Play" type="Button" parent="."]
 margin_left = 462.0
 margin_top = 350.0
 margin_right = 562.0
@@ -28,15 +43,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="Label"]
-margin_left = 462.0
-margin_top = 400.0
-margin_right = 562.0
-margin_bottom = 440.0
-text = "Quit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="Label/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="Label/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://UI/Menu.gd" type="Script" id=2]
+[ext_resource path="res://UI/Starfield-Slow-20sec-Loop.ogv" type="VideoStream" id=3]
 [ext_resource path="res://Asteroid/Asteroid.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=6]
@@ -11,16 +12,38 @@ __meta__ = {
 "_editor_description_": "The root of the scene"
 }
 
+[node name="Background" type="VideoPlayer" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+stream = ExtResource( 3 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player_Container" type="Node2D" parent="."]
 script = ExtResource( 6 )
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Asteroid_Container" instance=ExtResource( 5 )]
+position = Vector2( 365, 182 )
+
+[node name="Enemy2" parent="Asteroid_Container" instance=ExtResource( 5 )]
+position = Vector2( 587, 300 )
 
 [node name="Asteroid" parent="Asteroid_Container" instance=ExtResource( 4 )]
 position = Vector2( 100, 100 )
 
 [node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource( 4 )]
 position = Vector2( 800, 500 )
+
+[node name="Asteroid3" parent="Asteroid_Container" instance=ExtResource( 4 )]
+position = Vector2( 781, 130 )
+
+[node name="Asteroid4" parent="Asteroid_Container" instance=ExtResource( 4 )]
+position = Vector2( 172, 411 )
 
 [node name="Effects" type="Node2D" parent="."]
 
@@ -62,6 +85,7 @@ autostart = true
 
 [node name="Menu" type="Control" parent="UI"]
 pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
@@ -80,6 +104,9 @@ margin_bottom = 400.0
 text = "Game Paused"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Reset" type="Button" parent="UI/Menu"]
 margin_left = 462.0
